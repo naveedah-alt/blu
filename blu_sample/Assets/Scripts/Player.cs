@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public GameObject follower;
 
     // Fields for Speed
-    public float maxSpeed, minSpeed;
+    public float speed;
 
     public float accelerationRate, decelerationRate;
 
@@ -74,54 +74,27 @@ public class Player : MonoBehaviour
 
         Vector3 normalMoveDir = movementDirection.normalized;
         Vector3 force;
-        if (normalMoveDir == up)
-        {
-            force = follower.transform.forward;
-        } else if (normalMoveDir == down)
-        {
-            force = follower.transform.forward * -1f;
-        } else if (normalMoveDir == right)
-        {
-            force = follower.transform.right * -1f;
-        }  else if (normalMoveDir == left)
-        {
-            force = follower.transform.right;
-        } else
-        {
-            force = new Vector3(movementDirection.x, movementDirection.y, movementDirection.z);
-        }
+        force = new Vector3(movementDirection.x, movementDirection.y, movementDirection.z);
         force.Normalize();
         if (force.y == 0f)
         {
-            rBody.AddForce(force * 10f);
-        } else if (force.y == 1f)
+            // rBody.AddForce(force * 10f);
+            transform.Translate(movementDirection * speed * Time.deltaTime);
+        }
+        else if (force.y == 1f)
         {
             if (!done)
             {
                 if (canJump)
                 {
-                    rBody.AddForce(0f, 5f, 0f, ForceMode.Impulse);
+                    // rBody.AddForce(0f, 5f, 0f, ForceMode.Impulse);
+                    transform.Translate(movementDirection * speed * Time.deltaTime);
                     done = true;
                     canJump = false;
                     canStomp = true;
-                }      
-            }
-        } else {
-            if (canStomp)
-            {
-                if (!canJump)
-                {
-                    Debug.Log("smash");
-                    force = new Vector3(0f, -5f, 0f);
-                    rBody.AddForce(force*10f, ForceMode.Impulse);
-                    canStomp = false;
                 }
-                // Debug.Log("smash");
-                // rBody.AddForce(force * 15f);
-                // canStomp = false;
             }
-        }
-        
+        } 
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -146,11 +119,6 @@ public class Player : MonoBehaviour
     {
         movementDirection = new Vector3(0f, 1f, 0f);
         done = false;
-    }
-
-    public void OnStomp(InputAction.CallbackContext context)
-    {
-        movementDirection = new Vector3(0f, -1f, 0f);
     }
 
     void OnCollisionStay(Collision collision)
