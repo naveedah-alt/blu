@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
 
     float forceConrol;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,25 +65,23 @@ public class Player : MonoBehaviour
     {
         follower.transform.position = transform.position;
         // camera.transform.position = transform.position + bufferSpace;
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
-        Vector3 up = new Vector3(0f, 0f, 1f);
-        Vector3 down = new Vector3(0f, 0f, -1f);
-        Vector3 left = new Vector3(1f, 0f, 0f);
-        Vector3 right = new Vector3(-1f, 0f, 0f);
-
-        Vector3 normalMoveDir = movementDirection.normalized;
-        Vector3 force;
-        force = new Vector3(movementDirection.x, movementDirection.y, movementDirection.z);
-        force.Normalize();
-        if (force.y == 0f)
+        transform.Translate(movementDirection * speed * Time.deltaTime);
+        if (movementDirection.x != 0f || movementDirection.z != 0f)
         {
-            // rBody.AddForce(force * 10f);
-            transform.Translate(movementDirection * speed * Time.deltaTime);
+            Debug.Log("is running");
+            anim.SetBool("Running", true);
         }
-        else if (force.y == 1f)
+        else
+        {
+            anim.SetBool("Running", false);
+        }
+        
+        if (movementDirection.y == 1f)
         {
             if (!done)
             {
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
                     canStomp = true;
                 }
             }
-        } 
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
