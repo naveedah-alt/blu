@@ -405,15 +405,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7429f805b76de45028b20b10480227b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 963194227}
-  rBody: {fileID: 0}
+  rBody: {fileID: 990506506}
   follower: {fileID: 485291727}
   speed: 5
-  accelerationRate: 0
-  decelerationRate: 0
-  turnSpeed: 0
   movementDirection: {x: 0, y: 0, z: 0}
-  terrainLayer: 3
 --- !u!95 &990506508
 Animator:
   serializedVersion: 5
