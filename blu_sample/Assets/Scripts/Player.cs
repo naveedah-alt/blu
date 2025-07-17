@@ -61,12 +61,12 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("Running", false);
         }
-        
+
         if (movementDirection.y != 0f)
         {
             if (canJump)
             {
-                transform.Translate(movementDirection * speed * Time.deltaTime);
+                //transform.Translate(inputDir * moveSpeed * Time.deltaTime);
                 canJump = false;
             }
         }
@@ -74,9 +74,13 @@ public class Player : MonoBehaviour
 
     public void jump()
     {
-        Vector3 jumpVector = new Vector3(0f, 3f, 0f);
-        rBody.AddForce(jumpVector, ForceMode.Impulse);
-        // transform.Translate(jumpVector * speed * Time.deltaTime);
+        if (canJump)
+        {
+            Vector3 jumpVector = new Vector3(0f, 3f, 0f);
+            rBody.AddForce(jumpVector, ForceMode.Impulse);
+            transform.Translate(jumpVector * speed * Time.deltaTime);
+            canJump = false;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -101,5 +105,9 @@ public class Player : MonoBehaviour
             done = true;
             canJump = true;
         }
+/*    private void OnCollisionExit(Collision collision)
+    {
+        canJump = false;
+    }*/
 
 }
