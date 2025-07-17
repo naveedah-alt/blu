@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1521.6
     height: 758.4
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -610,9 +610,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 67.6165, y: 16.779001, z: 211.52869}
+    m_Target: {x: -2.8466508, y: 2.5266082, z: -2.5595334}
     speed: 2
-    m_Value: {x: 67.6165, y: 16.779001, z: 211.52869}
+    m_Value: {x: -2.8466508, y: 2.5266082, z: -2.5595334}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -658,13 +658,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.21992381, y: 0.17189533, z: -0.03947459, w: 0.9596479}
+    m_Target: {x: -0.18898053, y: -0.6741095, z: 0.18460007, w: -0.6900812}
     speed: 2
-    m_Value: {x: 0.21872872, y: 0.17190851, z: -0.039260343, w: 0.95972073}
+    m_Value: {x: -0.189699, y: -0.6768225, z: 0.1870911, w: -0.686238}
   m_Size:
-    m_Target: 277.76712
+    m_Target: 351.50278
     speed: 2
-    m_Value: 265.80585
+    m_Value: 336.3663
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -725,10 +725,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 6.799988}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3e87feff120fffff2810ffff
+      m_ExpandedIDs: 96e0ffff9ee1ffff76edffffb6eeffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -965,7 +965,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -973,16 +973,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\dsw03\Documents\GitHub\blu\blu_sample
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 48060000
-    m_LastClickedID: 1608
-    m_ExpandedIDs: 00000000fc05000000ca9a3b
+    m_SelectedIDs: 64210000
+    m_LastClickedID: 8548
+    m_ExpandedIDs: 000000006421000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
