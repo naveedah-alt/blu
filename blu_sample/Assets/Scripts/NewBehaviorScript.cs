@@ -13,6 +13,9 @@ public class NewBehaviourScript : MonoBehaviour
 
     public GameObject blueberryDustPrefab;
 
+    //Animator that allows for transitions between states
+    private Animator anim;
+
     private Rigidbody rb;
     private bool isGrounded = true;
     private bool isRolling = false;
@@ -28,90 +31,95 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Update()
     {
-        if (!isRolling)
+        /* if (!isRolling)
+         {*/
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        //Grabbing the Animator Component
+        anim = GetComponent<Animator>();
+
+        // Get camera-relative directions
+        Vector3 camForward = camController.GetCameraForward();
+        Vector3 camRight = camController.GetCameraRight();
+
+        // Flatten and normalize
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 inputDir = (camForward * vertical + camRight * horizontal).normalized;
+
+        /*bool isRollKeyHeld = Input.GetKey(KeyCode.R);
+
+        if (isRollKeyHeld && inputDir.magnitude != 0f && isGrounded)
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+            Vector3 move = inputDir * rollMoveSpeed * Time.deltaTime;
+            rb.MovePosition(rb.position + move);
+            transform.forward = inputDir;
 
-            // Get camera-relative directions
-            Vector3 camForward = camController.GetCameraForward();
-            Vector3 camRight = camController.GetCameraRight();
+            float cupcakeRadius = 5f;
+            float rollDegrees = (move.magnitude / cupcakeRadius) * Mathf.Rad2Deg;
+            transform.Rotate(Vector3.right, rollDegrees, Space.Self);
 
-            // Flatten and normalize
-            camForward.y = 0f;
-            camRight.y = 0f;
-            camForward.Normalize();
-            camRight.Normalize();
-
-            Vector3 inputDir = (camForward * vertical + camRight * horizontal).normalized;
-
-            bool isRollKeyHeld = Input.GetKey(KeyCode.R);
-
-            if (isRollKeyHeld && inputDir.magnitude > 0.1f && isGrounded)
-            {
-                Vector3 move = inputDir * rollMoveSpeed * Time.deltaTime;
-                rb.MovePosition(rb.position + move);
-                transform.forward = inputDir;
-
-                float cupcakeRadius = 5f;
-                float rollDegrees = (move.magnitude / cupcakeRadius) * Mathf.Rad2Deg;
-                transform.Rotate(Vector3.right, rollDegrees, Space.Self);
-
-                isRolling = true;
-            }
-            else
-            {
-                isRolling = false;
-
-                if (inputDir.magnitude > 0.1f)
-                {
-                    transform.Translate(inputDir * moveSpeed * Time.deltaTime, Space.World);
-                    transform.forward = inputDir;
-
-                    float bounce = Mathf.Sin(Time.time * 10f) * 0.05f;
-                    float sideWobble = Mathf.Sin(Time.time * 20f) * 0.03f;
-                    transform.localScale = new Vector3(1f + sideWobble, 1f + bounce, 1f - sideWobble);
-                }
-                else
-                {
-                    transform.localScale = Vector3.one;
-                }
-            }
-
-            // Dash
-            if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
-            {
-                Vector3 dashDirection = inputDir;
-                if (dashDirection.magnitude < 0.1f)
-                {
-                    dashDirection = transform.forward;
-                }
-                rb.AddForce(dashDirection * 15f, ForceMode.VelocityChange);
-            }
-
-            // Jump
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-            {
-                rb.constraints = RigidbodyConstraints.None;
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                isGrounded = false;
-                isRolling = false;
-                isSpinning = true;
-                totalSpin = 0f;
-
-                if (blueberryDustPrefab != null)
-                {
-                    Instantiate(blueberryDustPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
-                }
-            }
-
-            // Optional: Manual roll start (though holding R does this already)
-            if (Input.GetKeyDown(KeyCode.R) && isGrounded)
-            {
-                StartRoll();
-            }
+            isRolling = true;
         }
         else
+        {
+            isRolling = false;*/
+
+        if (inputDir.magnitude != 0f)
+        {
+            transform.Translate(inputDir * moveSpeed * Time.deltaTime, Space.World);
+            transform.forward = inputDir;
+            anim.SetBool("Running", true);
+            /* float bounce = Mathf.Sin(Time.time * 10f) * 0.05f;
+             float sideWobble = Mathf.Sin(Time.time * 20f) * 0.03f;
+             transform.localScale = new Vector3(1f + sideWobble, 1f + bounce, 1f - sideWobble);*/
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+            anim.SetBool("Running", false);
+        }
+        //}
+
+        // Dash
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
+        {
+            Vector3 dashDirection = inputDir;
+            if (dashDirection.magnitude != 0f)
+            {
+                dashDirection = transform.forward;
+            }
+            rb.AddForce(dashDirection * 15f, ForceMode.VelocityChange);
+        }
+
+        // Jump
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+            isRolling = false;
+            isSpinning = true;
+            totalSpin = 0f;
+
+            if (blueberryDustPrefab != null)
+            {
+                Instantiate(blueberryDustPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
+            }
+            isGrounded = false;
+        }
+
+        // Optional: Manual roll start (though holding R does this already)
+        /*if (Input.GetKeyDown(KeyCode.R) && isGrounded)
+        {
+            StartRoll();
+        }*/
+        //}
+        /*else
         {
             // Rolling logic
             rollTimer += Time.deltaTime;
@@ -132,10 +140,10 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 StopRoll();
             }
-        }
+        }*/
 
         // Jump spin
-        if (isSpinning)
+        /*if (isSpinning)
         {
             float spinStep = jumpSpinSpeed * Time.deltaTime;
             transform.Rotate(Vector3.right, spinStep, Space.Self);
@@ -145,7 +153,7 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 isSpinning = false;
             }
-        }
+        }*/
     }
 
     void StartRoll()

@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
     {
         movementDirection = context.ReadValue<Vector2>();
 
-        movementDirection.z = movementDirection.y;
+        //movementDirection.z = movementDirection.y;
 
         movementDirection.y = 0f;
 
