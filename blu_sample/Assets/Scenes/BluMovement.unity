@@ -515,22 +515,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &990506507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990506504}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7429f805b76de45028b20b10480227b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rBody: {fileID: 990506506}
-  follower: {fileID: 485291727}
-  speed: 5
-  movementDirection: {x: 0, y: 0, z: 0}
 --- !u!95 &990506508
 Animator:
   serializedVersion: 5
@@ -557,26 +541,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
   m_PrefabInstance: {fileID: 1291385186}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &990506510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990506504}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f503f784ff0ee4799337a165a43343, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 0
-  camController: {fileID: 963194229}
-  rollDuration: 1
-  rollSpeed: 360
-  rollMoveSpeed: 0
-  blueberryDustPrefab: {fileID: 0}
-  jumpSpinSpeed: 720
 --- !u!114 &990506511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +559,35 @@ MonoBehaviour:
   camController: {fileID: 963194229}
   rb: {fileID: 990506506}
   dashCD: 3
+--- !u!114 &990506512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990506504}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b983aafe49305142a6f2864b482c778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueberryPool: {fileID: 1473379627}
+  throwPoint: {fileID: 990506509}
+  throwForce: 10
+--- !u!114 &990506513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990506504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5c9829ba4364f4dbc0bb508ad476e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueberryPrefab: {fileID: 8516807360902718091, guid: 2be06a503fbb4e447943bdb1b6b60eb8, type: 3}
+  poolSize: 10
 --- !u!1 &1020627666
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +738,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 990506507}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -765,7 +758,7 @@ MonoBehaviour:
     m_ActionName: Player/Throw[/Keyboard/q]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 990506507}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
@@ -853,14 +846,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1473379628}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 990506508}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 990506507}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 990506506}
@@ -869,11 +862,76 @@ PrefabInstance:
       addedObject: {fileID: 990506505}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 990506510}
+      addedObject: {fileID: 990506511}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 990506511}
+      addedObject: {fileID: 990506512}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 990506513}
   m_SourcePrefab: {fileID: 100100000, guid: b741aadb2f0a64468b7cd5a20a7e752c, type: 3}
+--- !u!1 &1473379626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1473379628}
+  - component: {fileID: 1473379627}
+  - component: {fileID: 1473379629}
+  m_Layer: 0
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1473379627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473379626}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5c9829ba4364f4dbc0bb508ad476e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueberryPrefab: {fileID: 8516807360902718091, guid: 2be06a503fbb4e447943bdb1b6b60eb8, type: 3}
+  poolSize: 10
+--- !u!4 &1473379628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473379626}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.359, z: 1.881}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 990506509}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1473379629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473379626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b983aafe49305142a6f2864b482c778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueberryPool: {fileID: 990506513}
+  throwPoint: {fileID: 1473379628}
+  throwForce: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

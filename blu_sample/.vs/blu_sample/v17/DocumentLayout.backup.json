@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5A2EB4D7-21BD-AF12-CC7E-8837CD1CB1C2}|Assembly-CSharp.csproj|c:\\users\\shawn\\onedrive\\documents\\github\\blu\\blu_sample\\assets\\scripts\\blumovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A2EB4D7-21BD-AF12-CC7E-8837CD1CB1C2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\blumovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5A2EB4D7-21BD-AF12-CC7E-8837CD1CB1C2}|Assembly-CSharp.csproj|c:\\users\\shawn\\onedrive\\documents\\github\\blu\\blu_sample\\assets\\scripts\\newbehaviorscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A2EB4D7-21BD-AF12-CC7E-8837CD1CB1C2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newbehaviorscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,41 +30,56 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player.cs",
               "ToolTip": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\Player.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAkwE0AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAkwEcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-17T17:36:49.743Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BluMovement.cs",
+              "DocumentMoniker": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\BluMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BluMovement.cs",
+              "ToolTip": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\BluMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BluMovement.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAkwFcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T20:32:21.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "NewBehaviorScript.cs",
               "DocumentMoniker": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\NewBehaviorScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewBehaviorScript.cs",
               "ToolTip": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\NewBehaviorScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewBehaviorScript.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAqwJsAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAYwGAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-17T17:34:46.056Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ThirdPersonCamera.cs",
               "DocumentMoniker": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\ThirdPersonCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ThirdPersonCamera.cs",
               "ToolTip": "C:\\Users\\shawn\\OneDrive\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\ThirdPersonCamera.cs",
               "RelativeToolTip": "Assets\\Scripts\\ThirdPersonCamera.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwB0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-17T03:45:43.989Z"
+              "WhenOpened": "2025-07-17T03:45:43.989Z",
+              "EditorCaption": ""
             }
           ]
         }

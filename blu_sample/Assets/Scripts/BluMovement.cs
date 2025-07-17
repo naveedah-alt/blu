@@ -85,7 +85,7 @@ public class BluMovement : MonoBehaviour
                 dashDirection = transform.forward;
             }
             rb.AddForce(dashDirection * 18f, ForceMode.VelocityChange);
-            dashCD = 5f;
+            dashCD = 3f;
         }
 
         if (movementDirection.y != 0f)
@@ -102,7 +102,7 @@ public class BluMovement : MonoBehaviour
     {
         if (canJump)
         {
-            Vector3 jumpVector = new Vector3(0f, 5f, 0f);
+            Vector3 jumpVector = new Vector3(0f, 20f, 0f);
             rb.AddForce(jumpVector, ForceMode.Impulse);
             transform.Translate(jumpVector * moveSpeed * Time.deltaTime);
             canJump = false;
