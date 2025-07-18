@@ -9,9 +9,10 @@ public class BlueberryThrower : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))  // Press space to throw
+        if (Input.GetKeyDown(KeyCode.E))  // Press space to throw
         {
             // Get a blueberry from the pool
+            Debug.Log("blueberry thrown");
             GameObject bb = blueberryPool.GetBlueberry();
 
         bb.transform.position = throwPoint.position;
