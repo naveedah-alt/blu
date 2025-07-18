@@ -4,7 +4,7 @@ using UnityEngine;
 public class BlueberryPool : MonoBehaviour
 {
     public GameObject blueberryPrefab; 
-    public int poolSize = 10;           
+    public int poolSize = 5;           
     private Queue<GameObject> pool = new Queue<GameObject>();
 
     void Start()
@@ -28,6 +28,7 @@ public class BlueberryPool : MonoBehaviour
         }
 
         GameObject newBB = Instantiate(blueberryPrefab);
+        Destroy(newBB);
         newBB.SetActive(true);
         return newBB;
     }
