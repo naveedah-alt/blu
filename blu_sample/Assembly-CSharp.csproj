@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Blueberry.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\BlueberryPool.cs" />
+    <Compile Include="Assets\Scripts\Dialouge.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
