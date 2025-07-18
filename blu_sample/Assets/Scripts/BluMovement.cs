@@ -9,6 +9,7 @@ using UnityEngine.PlayerLoop;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 
+
 public class BluMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -102,16 +103,18 @@ public class BluMovement : MonoBehaviour
     {
         if (canJump)
         {
-            Vector3 jumpVector = new Vector3(0f, 5f, 0f);
+            Vector3 jumpVector = new Vector3(0f, jumpForce, 0f);
             rb.AddForce(jumpVector, ForceMode.Impulse);
             transform.Translate(jumpVector * moveSpeed * Time.deltaTime);
             canJump = false;
+            
         }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
         jump();
+        Debug.Log("you jumped");
     }
 
 
