@@ -3,3 +3,4 @@
 6af0c198bdbae3f6cd2ec9e7bbdd7a05 filter=lfs diff=lfs merge=lfs -text
 1060184773d6b1970e0393a833e8181c filter=lfs diff=lfs merge=lfs -text
 *.obj filter=lfs diff=lfs merge=lfs -text
+*.meta filter=lfs diff=lfs merge=lfs -text
