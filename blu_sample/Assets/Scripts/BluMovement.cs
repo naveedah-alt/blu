@@ -105,16 +105,18 @@ public class BluMovement : MonoBehaviour
         {
             Vector3 jumpVector = new Vector3(0f, jumpForce, 0f);
             rb.AddForce(jumpVector, ForceMode.Impulse);
-            transform.Translate(jumpVector * moveSpeed * Time.deltaTime);
             canJump = false;
-            
+
         }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        anim.SetBool("Jump", true);
+        Debug.Log("setting jumped true");
         jump();
         Debug.Log("you jumped");
+        // anim.SetBool("Jumping", false);
     }
 
 
@@ -132,6 +134,8 @@ public class BluMovement : MonoBehaviour
         Debug.Log("collision");
         done = true;
         canJump = true;
+        anim.SetBool("Jump", false);
+        Debug.Log("setting jumped false");
     }
 
 }

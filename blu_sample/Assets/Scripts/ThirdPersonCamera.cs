@@ -12,6 +12,9 @@ public class ThirdPersonCamera : MonoBehaviour
     void LateUpdate()
     {
         // Mouse input
+        // Vector3 mouseInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // yaw += mouseInWorld.x * sensitivity;
+
         yaw += Input.GetAxis("Mouse X") * sensitivity;
 
         // Rotate offset based on yaw

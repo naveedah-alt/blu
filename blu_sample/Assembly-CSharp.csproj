@@ -71,6 +71,7 @@
     <Compile Include="Assets/Scripts/ThirdPersonCamera.cs" />
     <Compile Include="Assets/Scripts/Blueberry.cs" />
     <Compile Include="Assets/Scripts/Player.cs" />
+    <Compile Include="Assets/Scripts/DestructibleWalls.cs" />
     <Compile Include="Assets/Scripts/BlueberryPool.cs" />
     <Compile Include="Assets/Scripts/Dialouge.cs" />
   </ItemGroup>
