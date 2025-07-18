@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1800
     height: 1050
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 342
     height: 560
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -273,8 +273,8 @@ MonoBehaviour:
     y: 0
     width: 424
     height: 1000
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -363,24 +363,24 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 80}
-      m_SelectedIDs: a88d0000
-      m_LastClickedID: 36264
-      m_ExpandedIDs: 940bffffbc0cffff
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 5608ffff
+      m_LastClickedID: -63402
+      m_ExpandedIDs: 3c0bffff500cffffb48f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: GroundCheck
+        m_OriginalName: GroundCheck
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -63402
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -720,9 +720,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 28.329283, y: 3.9698882, z: 87.7973}
+    m_Target: {x: 6.8, y: 6.2, z: 23.2}
     speed: 2
-    m_Value: {x: 28.329283, y: 3.9698882, z: 87.7973}
+    m_Value: {x: 6.8, y: 6.2, z: 23.2}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -768,13 +768,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.1576946, y: 0.81281173, z: -0.25022155, w: 0.5035423}
+    m_Target: {x: 0.04499241, y: 0.47765827, z: -0.020901807, w: 0.8781132}
     speed: 2
-    m_Value: {x: 0.15981792, y: 0.81098896, z: -0.25366506, w: 0.5024035}
+    m_Value: {x: 0.044954184, y: 0.47725245, z: -0.020884048, w: 0.87736714}
   m_Size:
-    m_Target: 47.81398
+    m_Target: 0.86987656
     speed: 2
-    m_Value: 46.83054
+    m_Value: 0.86987656
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1012,7 +1012,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1020,15 +1020,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/naveedah/Desktop/game design portfolio copy/blu/blu_sample
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 00060000
-    m_LastClickedID: 1536
+    m_SelectedIDs: 3c060000
+    m_LastClickedID: 1596
     m_ExpandedIDs: 000000000006000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0

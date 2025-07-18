@@ -12,6 +12,7 @@ using Vector2 = UnityEngine.Vector2;
 
 public class BluMovement : MonoBehaviour
 {
+    public JumpValidator groundChecker;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     // Fields for Input (WASD, Joystick, etc)
@@ -89,24 +90,27 @@ public class BluMovement : MonoBehaviour
             dashCD = 5f;
         }
 
-        if (movementDirection.y != 0f)
-        {
-            if (canJump)
-            {
-                //transform.Translate(inputDir * moveSpeed * Time.deltaTime);
-                canJump = false;
-            }
-        }
+        // if (movementDirection.y != 0f)
+        // {
+        //     if (canJump)
+        //     {
+        //         //transform.Translate(inputDir * moveSpeed * Time.deltaTime);
+        //         canJump = false;
+        //     }
+        // }
 
     }
     public void jump()
-    {
+    {   
+        if (groundChecker.jumpAbility == true)
+        {
+            canJump = true;
+        }
         if (canJump)
         {
             Vector3 jumpVector = new Vector3(0f, jumpForce, 0f);
             rb.AddForce(jumpVector, ForceMode.Impulse);
             canJump = false;
-
         }
     }
 
