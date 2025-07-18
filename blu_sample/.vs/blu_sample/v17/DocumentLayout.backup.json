@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\Dialouge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Dialouge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\BluMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\BluMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player.cs",
@@ -39,21 +43,7 @@
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAEcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-17T17:36:49.743Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BluMovement.cs",
-              "DocumentMoniker": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\BluMovement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\BluMovement.cs",
-              "ToolTip": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\BluMovement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\BluMovement.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAGcAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T01:59:21.528Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -61,7 +51,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Dialouge.cs",
+              "DocumentMoniker": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\Dialouge.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Dialouge.cs",
+              "ToolTip": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\Dialouge.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Dialouge.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T05:12:03.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BluMovement.cs",
+              "DocumentMoniker": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\BluMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BluMovement.cs",
+              "ToolTip": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\BluMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BluMovement.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAGcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T01:59:21.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "NewBehaviorScript.cs",
               "DocumentMoniker": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\NewBehaviorScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewBehaviorScript.cs",
@@ -73,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ThirdPersonCamera.cs",
               "DocumentMoniker": "C:\\Users\\dsw03\\Documents\\GitHub\\blu\\blu_sample\\Assets\\Scripts\\ThirdPersonCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ThirdPersonCamera.cs",
