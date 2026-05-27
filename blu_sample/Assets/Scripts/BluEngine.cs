@@ -16,8 +16,7 @@ public class BluEngine : MonoBehaviour
     private Rigidbody rb;
     public float MoveSpeed = 5f;
     private float moveHorizontal;
-    private float moveForward;
-
+    private float moveVertical;
     // Jumping
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f; // Multiplies gravity when falling down
@@ -50,8 +49,8 @@ public class BluEngine : MonoBehaviour
     void Update()
     {
 
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveForward = Input.GetAxisRaw("Vertical");
+        moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -93,7 +92,7 @@ public class BluEngine : MonoBehaviour
         camForward.Normalize();
         camRight.Normalize();
 
-        Vector3 movement = (camRight * moveHorizontal + camForward * moveForward).normalized;
+        Vector3 movement = (camRight * moveHorizontal + camForward * moveVertical).normalized;
         Vector3 targetVelocity = movement * MoveSpeed;
 
         // Apply movement to the Rigidbody
@@ -102,16 +101,10 @@ public class BluEngine : MonoBehaviour
         velocity.z = targetVelocity.z;
         rb.velocity = velocity;
 
-        if(moveHorizontal != 0 && moveForward != 0)
-        {
-            anim.SetBool("Running", true);
-        }
-        else if(moveHorizontal == 0 && moveForward == 0)
-        {
-            anim.SetBool("Running", false);
-        }
+        anim.SetBool("Running", movement.magnitude > 0);
+
         // If we aren't moving and are on the ground, stop velocity so we don't slide
-        if (isGrounded && moveHorizontal == 0 && moveForward == 0)
+        if (isGrounded && moveHorizontal == 0 && moveVertical == 0)
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
@@ -137,18 +130,5 @@ public class BluEngine : MonoBehaviour
             // Rising: Change multiplier to make player reach peak of jump faster
             rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime;
         }
-    }
-
-    void Camera()
-    {
-        // Get camera-relative directions
-        Vector3 camForward = camController.GetCameraForward();
-        Vector3 camRight = camController.GetCameraRight();
-
-        // Flatten and normalize
-        camForward.y = 0f;
-        camRight.y = 0f;
-        camForward.Normalize();
-        camRight.Normalize();
     }
 }
