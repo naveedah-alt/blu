@@ -6,8 +6,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.PlayerLoop;
-using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 
 public class BluMovement : MonoBehaviour
@@ -30,7 +30,7 @@ public class BluMovement : MonoBehaviour
     bool done;
 
     //Works in conjunction with done to prevent double jumps
-    bool canJump;
+   // bool canJump;
 
     //Identifies CoolDown Time
     public float dashCD = 3f;
@@ -101,26 +101,35 @@ public class BluMovement : MonoBehaviour
 
     }
     public void jump()
-    {   
-        if (groundChecker.jumpAbility == true)
-        {
-            canJump = true;
-        }
-        if (canJump)
-        {
+    {
+        Debug.Log("Jump check 2");
+        //if (groundChecker.jumpAbility == true)
+       // {
+            anim.SetBool("Jump", true);
+            Debug.Log("setting jump true");
             Vector3 jumpVector = new Vector3(0f, jumpForce, 0f);
             rb.AddForce(jumpVector, ForceMode.Impulse);
-            canJump = false;
-        }
+       // }
+        //else
+       // {
+         //   return;
+       // }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        anim.SetBool("Jump", true);
-        Debug.Log("setting jumped true");
-        jump();
-        Debug.Log("you jumped");
+        // anim.SetBool("Jump", true);
+        // Debug.Log("setting jumped true");
+        //jump();
+        //Debug.Log("Jumping?");
+        //  Debug.Log("you jumped");
         // anim.SetBool("Jumping", false);
+        Debug.Log("initial check?");
+        if (context.phase == InputActionPhase.Performed && groundChecker.jumpAbility)
+        {
+            jump();
+            Debug.Log("Jumping?");
+        }
     }
 
 
@@ -133,6 +142,7 @@ public class BluMovement : MonoBehaviour
         movementDirection.y = 0f;
 
     }
+    /*
     void OnCollisionStay(Collision collision)
     {
         Debug.Log("collision");
@@ -141,5 +151,5 @@ public class BluMovement : MonoBehaviour
         anim.SetBool("Jump", false);
         Debug.Log("setting jumped false");
     }
-
+    */
 }

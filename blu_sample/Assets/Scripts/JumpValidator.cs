@@ -6,24 +6,39 @@ public class JumpValidator : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool jumpAbility;
+    [SerializeField]
+    private Animator anim;
+    private int groundContacts = 0;
     void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-
+        if (other.CompareTag("Ground"))
+        {
+            groundContacts++;
+            if (groundContacts > 0)
+            {
+                jumpAbility = true;
+                anim.SetBool("Jump", false);
+                Debug.Log("Grounded");
+            }
+        }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-        jumpAbility = true;
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        jumpAbility = false;
+        if (other.CompareTag("Ground"))
+        {
+            groundContacts--;
+            if (groundContacts <= 0)
+            {
+                jumpAbility = false;
+                Debug.Log("Airborne");
+            }
+        }
     }
 }
