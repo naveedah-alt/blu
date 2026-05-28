@@ -85,12 +85,10 @@ public class BluEngine : MonoBehaviour
         // Get camera-relative directions
         Vector3 camForward = camController.GetCameraForward();
         Vector3 camRight = camController.GetCameraRight();
-
-        float cameraRotationx = camController.gameObject.transform.localEulerAngles.x;
+   
         float cameraRotationy = camController.gameObject.transform.localEulerAngles.y;
-        float cameraRotationz = camController.gameObject.transform.localEulerAngles.z;
 
-        Quaternion rotation = Quaternion.Euler(cameraRotationx, cameraRotationy, 0.0f);
+        Quaternion rotation = Quaternion.Euler(0.0f, cameraRotationy, 0.0f);
         rotation.Normalize();
 
         gameObject.transform.rotation = rotation;

@@ -8,6 +8,8 @@ public class ThirdPersonCamera : MonoBehaviour
     public float smoothSpeed = 10f;     // Camera follow smoothness
 
     private float yaw = 0f;             // Rotation around Y axis
+    private float xaw = 0f;
+    private float zaw = 0f;
 
     void LateUpdate()
     {
@@ -16,9 +18,11 @@ public class ThirdPersonCamera : MonoBehaviour
         // yaw = mouseInWorld.x;
 
         yaw += Input.GetAxis("Mouse X") * sensitivity;
+        xaw += Input.GetAxis("Mouse Y") * sensitivity;
+        
 
         // Rotate offset based on yaw
-        Quaternion rotation = Quaternion.Euler(0, yaw, 0);
+        Quaternion rotation = Quaternion.Euler(xaw, yaw, 0);
         Vector3 desiredPosition = target.position + rotation * offset;
 
         // Move camera
