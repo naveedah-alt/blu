@@ -456,9 +456,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 33661791411912891, guid: 83628076504096543b9b8c5a80d0035b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1433995588}
-    - targetCorrespondingSourceObject: {fileID: 33661791411912891, guid: 83628076504096543b9b8c5a80d0035b, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1433995594}
     - targetCorrespondingSourceObject: {fileID: 33661791411912891, guid: 83628076504096543b9b8c5a80d0035b, type: 3}
       insertIndex: -1
@@ -640,26 +637,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 33661791411912891, guid: 83628076504096543b9b8c5a80d0035b, type: 3}
   m_PrefabInstance: {fileID: 407577766}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1433995588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433995587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55a8f2e3d51f6584a93330adde5ef900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 8
-  MoveSpeed: 8
-  jumpForce: 15
-  fallMultiplier: 2.5
-  ascendMultiplier: 2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!136 &1433995594
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -702,7 +679,7 @@ MonoBehaviour:
   ascendMultiplier: 2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!4 &1433995599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 809600734355790337, guid: 83628076504096543b9b8c5a80d0035b, type: 3}
