@@ -27,6 +27,8 @@ public class BluEngine : MonoBehaviour
     private float groundCheckDelay = 0.3f;
     private float playerHeight;
     private float raycastDistance;
+    private float cameraRotationy;
+    private Quaternion rotation;
 
     // Start is called before the first frame update
     void Start()
@@ -43,14 +45,24 @@ public class BluEngine : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        cameraRotationy = camController.gameObject.transform.localEulerAngles.y;
+
+        rotation = Quaternion.Euler(0.0f, cameraRotationy, 0.0f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        cameraRotationy = camController.gameObject.transform.localEulerAngles.y;
+
+        rotation = Quaternion.Euler(0.0f, cameraRotationy, 0.0f);
+        rotation.Normalize();
 
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
+
+        
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -71,6 +83,11 @@ public class BluEngine : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            gameObject.transform.rotation = rotation;
+        }
+        
         MovePlayer();
         ApplyJumpPhysics();
         if (isGrounded)
@@ -86,12 +103,9 @@ public class BluEngine : MonoBehaviour
         Vector3 camForward = camController.GetCameraForward();
         Vector3 camRight = camController.GetCameraRight();
    
-        float cameraRotationy = camController.gameObject.transform.localEulerAngles.y;
+        
 
-        Quaternion rotation = Quaternion.Euler(0.0f, cameraRotationy, 0.0f);
-        rotation.Normalize();
-
-        gameObject.transform.rotation = rotation;
+        //gameObject.transform.rotation = rotation;
 
         // Flatten and normalize
         camForward.y = 0f;
