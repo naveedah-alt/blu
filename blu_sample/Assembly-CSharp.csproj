@@ -68,6 +68,7 @@
     <Compile Include="Assets/Scripts/BluEngine.cs" />
     <Compile Include="Assets/Scripts/NewBehaviorScript.cs" />
     <Compile Include="Assets/Scripts/BluMovement.cs" />
+    <Compile Include="Assets/Scripts/Trigger.cs" />
     <Compile Include="Assets/Scripts/JumpValidator.cs" />
     <Compile Include="Assets/Scripts/DialogueTrigger.cs" />
     <Compile Include="Assets/Scripts/BlueberryThrower.cs" />
