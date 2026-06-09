@@ -29,13 +29,14 @@ public class BluEngine : MonoBehaviour
     private float raycastDistance;
     private float cameraRotationy;
     private Quaternion rotation;
+    public float rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
+        //rb.freezeRotation = true;
 
         // Set the raycast to be slightly beneath the player's feet
         playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
@@ -85,7 +86,7 @@ public class BluEngine : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            gameObject.transform.rotation = rotation;
+            //gameObject.transform.rotation = rotation;
         }
         
         MovePlayer();
@@ -121,6 +122,16 @@ public class BluEngine : MonoBehaviour
         velocity.x = targetVelocity.x;
         velocity.z = targetVelocity.z;
         rb.velocity = velocity;
+        // if (movement!= Vector3.zero)
+        // {
+        //     //transform.forward = movement;
+        // }
+         if (movement!= Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion. LookRotation(movement, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        };
+        // rb.rotation = camController;
 
         anim.SetBool("Running", movement.magnitude > 0);
 
@@ -128,6 +139,7 @@ public class BluEngine : MonoBehaviour
         if (isGrounded && moveHorizontal == 0 && moveVertical == 0)
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            //rb.rotation = 
         }
     }
 
