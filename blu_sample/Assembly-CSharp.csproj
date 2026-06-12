@@ -73,6 +73,7 @@
     <Compile Include="Assets/Scripts/DialogueTrigger.cs" />
     <Compile Include="Assets/Scripts/BlueberryThrower.cs" />
     <Compile Include="Assets/Scripts/ThirdPersonCamera.cs" />
+    <Compile Include="Assets/Scripts/Ledge.cs" />
     <Compile Include="Assets/Scripts/Blueberry.cs" />
     <Compile Include="Assets/Scripts/EnemyScript.cs" />
     <Compile Include="Assets/Scripts/Player.cs" />

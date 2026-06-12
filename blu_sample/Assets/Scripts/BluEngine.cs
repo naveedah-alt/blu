@@ -30,10 +30,15 @@ public class BluEngine : MonoBehaviour
     private float cameraRotationy;
     private Quaternion rotation;
     public float rotationSpeed;
+    private bool ledgeGrabbed;
+    private Ledge ledge;
+
+    public bool movementEnabled;
 
     // Start is called before the first frame update
     void Start()
     {
+        movementEnabled = true;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         //rb.freezeRotation = true;
@@ -52,6 +57,25 @@ public class BluEngine : MonoBehaviour
 
     }
 
+    IEnumerator StandUpStart()
+    {
+        ledgeGrabbed = false;
+        anim.SetBool("LedgeIsGrabbed", false);
+        anim.SetBool("PlayerIsClimbing", true);
+        yield return new WaitForSeconds (1.1f);
+        StandupFinish();
+    }
+
+    public void StandupFinish ()
+    {
+        transform.position = ledge.StandUpProgress();
+        anim.SetBool("PlayerIsClimbing", false);
+        anim.enabled = true;
+        movementEnabled = true;
+        rb.freezeRotation = false;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -65,7 +89,7 @@ public class BluEngine : MonoBehaviour
 
         
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && movementEnabled)
         {
             Jump();
         }
@@ -80,7 +104,33 @@ public class BluEngine : MonoBehaviour
         {
             groundCheckTimer -= Time.deltaTime;
         }
+
+        if(ledgeGrabbed == true)
+        {
+            rb.freezeRotation = true;
+            if (Input.GetKeyDown (KeyCode. Space))
+            {
+                anim.SetBool("PlayerIsClimbing", true);
+                StartCoroutine(StandUpStart());
+            }
+            
+        }
+            
     }
+
+    IEnumerator WaitToMove(Vector3 handPos)
+    {
+        anim.SetBool ("LedgeIsGrabbed", true);
+        yield return new WaitForSeconds (1.1f);
+        FinishMoving(handPos);
+        //transform.position = handPos;
+    }
+
+    public void FinishMoving(Vector3 handPos)
+    {
+        transform.position = handPos;
+    }
+    
 
     void FixedUpdate()
     {
@@ -89,15 +139,32 @@ public class BluEngine : MonoBehaviour
             //gameObject.transform.rotation = rotation;
         }
         
-        MovePlayer();
-        ApplyJumpPhysics();
+        if (movementEnabled)
+        {
+            MovePlayer();
+            ApplyJumpPhysics();
+        }
         if (isGrounded)
         {
             anim.SetBool("Jump", false);
         }
 
-        }
+    }
 
+    public void LedgeGrabbed(Vector3 handPos, Ledge currentLedge)
+    {
+        ledge = currentLedge;
+        movementEnabled = false;
+        
+        ledgeGrabbed = true; 
+        Debug.Log("ledge collided");
+        anim.SetFloat("Speed", 0);
+        anim.SetBool ("Jump", false);
+        StartCoroutine(WaitToMove(handPos));
+        //transform.position = handPos;
+        //WaitToMove(handPos);
+        //anim.SetBool("LedgeIsGrabbed", true);
+    }
     void MovePlayer()
     {
         // Get camera-relative directions
@@ -128,8 +195,9 @@ public class BluEngine : MonoBehaviour
         // }
          if (movement!= Vector3.zero)
         {
-            Quaternion toRotation = Quaternion. LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            transform.forward = movement;
+            // Quaternion toRotation = Quaternion. LookRotation(movement, Vector3.up);
+            // transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         };
         // rb.rotation = camController;
 
@@ -164,4 +232,6 @@ public class BluEngine : MonoBehaviour
             rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime;
         }
     }
+
+
 }
