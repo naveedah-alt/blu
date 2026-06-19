@@ -160,10 +160,10 @@ public class BluEngine : MonoBehaviour
         Debug.Log("ledge collided");
         anim.SetFloat("Speed", 0);
         anim.SetBool ("Jump", false);
-        StartCoroutine(WaitToMove(handPos));
-        //transform.position = handPos;
+        // StartCoroutine(WaitToMove(handPos));
+        transform.position = handPos;
         //WaitToMove(handPos);
-        //anim.SetBool("LedgeIsGrabbed", true);
+        anim.SetBool("LedgeIsGrabbed", true);
     }
     void MovePlayer()
     {
