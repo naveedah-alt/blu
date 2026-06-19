@@ -1,0 +1,34 @@
+{
+    "name": "PlaytestActions",
+    "maps": [
+        {
+            "name": "Playtest",
+            "id": "9681934c-bb0b-4a00-b54a-0d816288277c",
+            "actions": [
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "101bda7a-880b-4834-ab1a-e13f7bf11962",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c11e3887-abbd-4cfa-9079-de072c91a6f6",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

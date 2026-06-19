@@ -15,6 +15,7 @@ public class Dialouge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //erases any text already on screen
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -22,6 +23,7 @@ public class Dialouge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Clicking the mouse moves the dialouge to the next line
         if (Input.GetMouseButtonDown(0))
         {
             if (textComponent.text == lines[index])

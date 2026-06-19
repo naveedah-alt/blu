@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // This script controls the movement of Player 1 - Daniel
 
@@ -174,7 +176,7 @@ public class BluEngine : MonoBehaviour
         movementEnabled = false;
         
         ledgeGrabbed = true; 
-        Debug.Log("ledge collided");
+        //Debug.Log("ledge collided");
         anim.SetFloat("Speed", 0);
         anim.SetBool ("Jump", false);
         // StartCoroutine(WaitToMove(handPos));
@@ -299,6 +301,12 @@ public class BluEngine : MonoBehaviour
             rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime;
         }
     }
+
+    //public void OnSprint(InputAction.CallbackContext context)
+    //{
+    //    sprint = true;
+    //    Debug.Log("sprint is true");
+    //}
 
 
 }
