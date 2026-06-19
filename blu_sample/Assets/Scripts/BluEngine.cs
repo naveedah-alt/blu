@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -149,7 +148,7 @@ public class BluEngine : MonoBehaviour
 
         // if (Input.GetKeyDown (KeyCode.LeftShift))
         // {
-        //     Debug.Log("sprinting!");
+             //Debug.Log("sprinting!");
         //     sprint = true;
         // }
         // if (Input.GetKeyUp (KeyCode.LeftShift))
@@ -302,11 +301,11 @@ public class BluEngine : MonoBehaviour
         }
     }
 
-    //public void OnSprint(InputAction.CallbackContext context)
-    //{
-    //    sprint = true;
-    //    Debug.Log("sprint is true");
-    //}
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        sprint = true;
+        Debug.Log("sprint is true");
+    }
 
 
 }
