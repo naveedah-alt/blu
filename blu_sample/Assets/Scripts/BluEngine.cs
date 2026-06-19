@@ -74,6 +74,7 @@ public class BluEngine : MonoBehaviour
         movementEnabled = true;
         rb.freezeRotation = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rb.isKinematic = false;
     }
 
     // Update is called once per frame
@@ -162,6 +163,10 @@ public class BluEngine : MonoBehaviour
         anim.SetBool ("Jump", false);
         // StartCoroutine(WaitToMove(handPos));
         transform.position = handPos;
+        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
+        transform.rotation = toRotation;
+        rb.isKinematic = true;
+        //transform.position += Vector3.forward;
         //WaitToMove(handPos);
         anim.SetBool("LedgeIsGrabbed", true);
     }
