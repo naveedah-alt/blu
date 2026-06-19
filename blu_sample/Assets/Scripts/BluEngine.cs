@@ -34,10 +34,14 @@ public class BluEngine : MonoBehaviour
     private Ledge ledge;
 
     public bool movementEnabled;
+    public bool sprint;
+    private float acceleration;
 
     // Start is called before the first frame update
     void Start()
     {
+        acceleration = 2.0f;
+        sprint = false;
         movementEnabled = true;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -138,7 +142,19 @@ public class BluEngine : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             //gameObject.transform.rotation = rotation;
+
         }
+
+        // if (Input.GetKeyDown (KeyCode.LeftShift))
+        // {
+        //     Debug.Log("sprinting!");
+        //     sprint = true;
+        // }
+        // if (Input.GetKeyUp (KeyCode.LeftShift))
+        // {
+        //     Debug.Log("done sprinting!");
+        //     sprint = false;
+        // }
         
         if (movementEnabled)
         {
@@ -172,6 +188,7 @@ public class BluEngine : MonoBehaviour
     }
     void MovePlayer()
     {
+        
         // Get camera-relative directions
         Vector3 camForward = camController.GetCameraForward();
         Vector3 camRight = camController.GetCameraRight();
@@ -201,12 +218,41 @@ public class BluEngine : MonoBehaviour
          if (movement!= Vector3.zero)
         {
             transform.forward = movement;
+            
+            // if (sprint)
+            // {
+            //     velocity = rb.velocity;
+            //     velocity.x += acceleration * Time.deltaTime;
+            //     velocity.z += acceleration * Time.deltaTime;
+            //     rb.velocity = velocity;
+                
+            //     //anim.SetBool("Walking", false);
+            //     //anim.SetBool("Running", movement.magnitude > 0);
+            // } 
+            // else
+            // {
+            //     //transform.forward = movement;
+            //     //anim.SetBool("Running", false);
+            //     anim.SetBool("Walking", movement.magnitude > 0);
+            // }
+            
             // Quaternion toRotation = Quaternion. LookRotation(movement, Vector3.up);
             // transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        };
+        }
+        // if (sprint)
+        // {
+        //     anim.SetBool("Running", movement.magnitude > 0);
+        // } else
+        // {
+        //     anim.SetBool("Walking", movement.magnitude > 0);
+        // }
+
+        anim.SetBool("Walking", movement.magnitude > 0);
+        
+        //Debug.Log(anim.GetBool("Walking"));
         // rb.rotation = camController;
 
-        anim.SetBool("Running", movement.magnitude > 0);
+        
 
         // If we aren't moving and are on the ground, stop velocity so we don't slide
         if (isGrounded && moveHorizontal == 0 && moveVertical == 0)
@@ -216,12 +262,28 @@ public class BluEngine : MonoBehaviour
         }
     }
 
+    IEnumerator JumpStart()
+    {
+        
+        isGrounded = false;
+        groundCheckTimer = groundCheckDelay;
+        yield return new WaitForSeconds (0.2f);
+        JumpFinish();
+    }
+
+    public void JumpFinish()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+    }
+
     void Jump()
     {
         anim.SetBool("Jump", true);
-        isGrounded = false;
-        groundCheckTimer = groundCheckDelay;
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); // Initial burst for the jump
+        StartCoroutine(JumpStart());
+        // anim.SetBool("Jump", true);
+        // isGrounded = false;
+        // groundCheckTimer = groundCheckDelay;
+        // rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); // Initial burst for the jump
     }
 
     void ApplyJumpPhysics()
