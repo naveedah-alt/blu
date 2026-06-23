@@ -80,6 +80,7 @@
     <Compile Include="Assets/Scripts/DestructibleWalls.cs" />
     <Compile Include="Assets/Scripts/BlueberryPool.cs" />
     <Compile Include="Assets/Scripts/Dialouge.cs" />
+    <Compile Include="Assets/Scripts/Borders.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
