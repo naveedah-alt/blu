@@ -1,6 +1,10 @@
 using UnityEngine;
 
 /*
+Ignore this file
+*/
+
+/*
     This script provides jumping and movement in Unity 3D - Gatsby
 */
 

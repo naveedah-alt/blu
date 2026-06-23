@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Script addresses camera movement
+/// </summary>
 public class ThirdPersonCamera : MonoBehaviour
 {
     public Transform target;            // The player
@@ -11,6 +13,10 @@ public class ThirdPersonCamera : MonoBehaviour
     private float xaw = 0f;
     private float zaw = 0f;
 
+    /// <summary>
+    /// Gets input from Input Manager and applies it to camera
+    /// Ignore all commented code, they're still there in case we want to revert to old methods
+    /// </summary>
     void LateUpdate()
     {
         // Mouse input
@@ -55,7 +61,16 @@ public class ThirdPersonCamera : MonoBehaviour
         //66 and -105
     }
 
+    /// <summary>
+    /// Returns the forward vector from the camera's perspective
+    /// </summary>
+    /// <returns></returns>
     public Vector3 GetCameraForward() => Quaternion.Euler(0, yaw, 0) * Vector3.forward;
+
+    /// <summary>
+    /// Returns the right vector from the camera's perspective
+    /// </summary>
+    /// <returns></returns>
     public Vector3 GetCameraRight() => Quaternion.Euler(0, yaw, 0) * Vector3.right;
 }
    

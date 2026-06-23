@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Ignore this file
+*/
 public class JumpValidator : MonoBehaviour
 {
     // Start is called before the first frame update

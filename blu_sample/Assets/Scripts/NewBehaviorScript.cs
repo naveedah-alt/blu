@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/*
+Ignore this file
+*/
 public class NewBehaviourScript : MonoBehaviour
 {
     public float moveSpeed = 5f;

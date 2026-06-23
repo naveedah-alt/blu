@@ -9,6 +9,9 @@ using UnityEngine.PlayerLoop;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 
+/*
+Ignore this file
+*/
 public class Player : MonoBehaviour
 {
     public Rigidbody rBody;
