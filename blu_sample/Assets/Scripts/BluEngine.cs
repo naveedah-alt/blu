@@ -37,6 +37,7 @@ public class BluEngine : MonoBehaviour
     public bool movementEnabled;
     public bool sprint;
     private float acceleration;
+    public bool grabbed;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class BluEngine : MonoBehaviour
         sprint = false;
         movementEnabled = true;
         anim = GetComponent<Animator>();
+        grabbed = anim.GetBool("LedgeIsGrabbed");
         rb = GetComponent<Rigidbody>();
         //rb.freezeRotation = true;
 
@@ -171,21 +173,23 @@ public class BluEngine : MonoBehaviour
 
     public void LedgeGrabbed(Vector3 handPos, Ledge currentLedge)
     {
+        anim.SetBool("LedgeIsGrabbed", true);
         ledge = currentLedge;
         movementEnabled = false;
         
         ledgeGrabbed = true; 
         //Debug.Log("ledge collided");
-        anim.SetFloat("Speed", 0);
+        anim.SetBool("Walking", false);
         anim.SetBool ("Jump", false);
         // StartCoroutine(WaitToMove(handPos));
         transform.position = handPos;
         Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
         transform.rotation = toRotation;
         rb.isKinematic = true;
+        
         //transform.position += Vector3.forward;
         //WaitToMove(handPos);
-        anim.SetBool("LedgeIsGrabbed", true);
+        
     }
     void MovePlayer()
     {
