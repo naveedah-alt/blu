@@ -22,7 +22,7 @@ public class BluEngine : MonoBehaviour
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f; // Multiplies gravity when falling down
     public float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
-    private bool isGrounded = true;
+    public bool isGrounded = true;
     public LayerMask groundLayer;
     private float groundCheckTimer = 0f;
     private float groundCheckDelay = 0.3f;
@@ -284,11 +284,11 @@ public class BluEngine : MonoBehaviour
     void Jump()
     {
         anim.SetBool("Jump", true);
-        StartCoroutine(JumpStart());
+        // StartCoroutine(JumpStart());
         // anim.SetBool("Jump", true);
-        // isGrounded = false;
-        // groundCheckTimer = groundCheckDelay;
-        // rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); // Initial burst for the jump
+        isGrounded = false;
+        groundCheckTimer = groundCheckDelay;
+        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); // Initial burst for the jump
     }
 
     void ApplyJumpPhysics()
