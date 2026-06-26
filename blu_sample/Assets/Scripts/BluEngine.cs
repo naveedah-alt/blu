@@ -38,10 +38,12 @@ public class BluEngine : MonoBehaviour
     public bool sprint;
     private float acceleration;
     public bool grabbed;
+    public Collider capsuleCollider;
 
     // Start is called before the first frame update
     void Start()
     {
+        capsuleCollider = capsuleCollider.GetComponent<CapsuleCollider>();
         acceleration = 2.0f;
         sprint = false;
         movementEnabled = true;
@@ -167,6 +169,12 @@ public class BluEngine : MonoBehaviour
         if (isGrounded)
         {
             anim.SetBool("Jump", false);
+            capsuleCollider.enabled = false;
+        }
+
+        if (!isGrounded)
+        {
+            capsuleCollider.enabled = true;
         }
 
     }
