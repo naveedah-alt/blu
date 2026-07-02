@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class NPCController : MonoBehaviour
 {
@@ -45,8 +46,22 @@ public class NPCController : MonoBehaviour
             {
                 Debug.Log("hit something! rotating now!");
                 transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 1f);
+                
+                
+                Vector3 nextDestination = patrolPath.GetDestinationOnPath(gameObject.transform, currentPathIndex);
+                float goalAngle = Mathf.MoveTowardsAngle(gameObject.transform.eulerAngles.z, nextDestination.z, speed * Time.deltaTime);
+                if (Physics.Raycast(transform.position, movingDirection, out obstacleInFront, 5f)){
+                    Debug.Log("hit something! rotating now!");
+
+                    if (goalAngle > 0)
+                    {
+                        transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 1f);
+                    } else
+                        transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, -1f);
+                }
+
                 Debug.DrawRay(transform.position, movingDirection, Color.blue);
-            }
+            } 
         }
         else
         {
@@ -54,13 +69,13 @@ public class NPCController : MonoBehaviour
             //This Indexing relies on [NPCPatrol] which accounts for out of bounds and reverse order
             currentPathIndex = patrolPath.UpdatePathDestination(gameObject.transform, currentPathIndex);
             Vector3 nextDestination = patrolPath.GetDestinationOnPath(gameObject.transform, currentPathIndex);
-            
+           
             patrol(currentPathIndex, nextDestination);
         }
     }
 
     void patrol(int i, Vector3 destination)
-    { //currentIndex = 0;
+    {
             transform.position = Vector3.MoveTowards(gameObject.transform.position, destination, step);
             movingDirection = (destination - transform.position).normalized;
     }
