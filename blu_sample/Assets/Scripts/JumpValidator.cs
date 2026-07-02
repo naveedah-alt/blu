@@ -13,6 +13,7 @@ public class JumpValidator : MonoBehaviour
     private Animator anim;
     private int groundContacts = 0;
     void Start()
+        
     {
 
     }
