@@ -55,9 +55,9 @@ public class NPCController : MonoBehaviour
 
                     if (goalAngle > 0)
                     {
-                        transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 1f);
+                        transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 2f);
                     } else
-                        transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, -1f);
+                        transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, -2f);
                 }
 
                 Debug.DrawRay(transform.position, movingDirection, Color.blue);
