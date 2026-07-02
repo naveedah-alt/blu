@@ -41,10 +41,10 @@ public class NPCController : MonoBehaviour
         //Collision Detection, won't move if object present, otherwise proceeds with movement code
         if (Physics.Raycast(transform.position, movingDirection, out obstacleInFront, 2f))
         {
-            if (obstacleInFront.collider.gameObject.layer != 3 && obstacleInFront.collider.gameObject.layer != 6)
+            if (obstacleInFront.collider.gameObject.layer != 3 && obstacleInFront.collider.gameObject.layer != 6 || !obstacleInFront.collider.CompareTag("Wall"))
             {
                 Debug.Log("hit something! rotating now!");
-                transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 2f);
+                transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 1f);
                 Debug.DrawRay(transform.position, movingDirection, Color.blue);
             }
         }

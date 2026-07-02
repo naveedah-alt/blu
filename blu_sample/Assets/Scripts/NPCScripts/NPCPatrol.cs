@@ -9,9 +9,9 @@ public class NPCPatrol : MonoBehaviour
     //to return indexing and Vector 3 values. [See NPC Patrol]
 
     public List<Transform> pathNodes = new List<Transform>();
-    public float pathReachingRadius = 2f;
+    public float pathReachingRadius = 1f;
 
-    //Function for checking if NPC is able to move in set direction
+    //Function for checking if Pathnodes List has a node
     private bool IsPathValid()
     {
         return this && pathNodes.Count > 0;
@@ -28,6 +28,7 @@ public class NPCPatrol : MonoBehaviour
         return pathNodes[NodeIndex].position;
     }
 
+    //Determines when to increment the next index
     public Vector3 GetDestinationOnPath(Transform agent, int pathDestinationNodeIndex)
     {
         if (IsPathValid())
@@ -42,7 +43,7 @@ public class NPCPatrol : MonoBehaviour
 
     public int UpdatePathDestination(Transform agent, int pathDestinationNodeIndex, bool inverseOrder = false)
     {
-        //A Checking Function for if the NPC can continue on the set path and how to update it
+        //A Checking Function for if the NPC has made it to the next Node/Waypoint, will increment if so
         if (IsPathValid())
         {
             if ((agent.position - GetDestinationOnPath(agent, pathDestinationNodeIndex)).magnitude <= pathReachingRadius)
