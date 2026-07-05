@@ -32,7 +32,7 @@ public class ThirdPersonCamera : MonoBehaviour
             
         }
         //Debug.Log(yaw);
-         Debug.Log(xaw);
+        //  Debug.Log(xaw);
         //zaw += Input.GetAxis("Mouse Z") * sensitivity;
         
 

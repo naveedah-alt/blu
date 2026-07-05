@@ -30,46 +30,68 @@ public class NPCController : MonoBehaviour
     {
         movingDirection = new Vector3();
         obstacleInFront = new RaycastHit();
-        origin = gameObject.transform.position;
+        origin = gameObject.transform.forward;
         direction = true;
         step = speed * Time.deltaTime;
         currentPathIndex = 0;
         targetPathIndex = 0;
+        this.transform.LookAt(this.transform.position + this.transform.forward);
     }
 
     void FixedUpdate()
     {
+        
         //Collision Detection, won't move if object present, otherwise proceeds with movement code
         if (Physics.Raycast(transform.position, movingDirection, out obstacleInFront, 2f))
         {
-            if (obstacleInFront.collider.gameObject.layer != 3 && obstacleInFront.collider.gameObject.layer != 6 || !obstacleInFront.collider.CompareTag("Wall"))
+            //|| !obstacleInFront.collider.CompareTag("Wall")
+            if (obstacleInFront.collider.CompareTag("Wall") || obstacleInFront.collider.gameObject.layer != 6 )
             {
-                Debug.Log("hit something! rotating now!");
-                transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 1f);
+                // Debug.DrawRay(transform.position, transform.forward, Color.blue);
+                // Debug.Log("hit something! rotating now!");
+                Vector3 perpendicularMovement = new Vector3(-movingDirection.z, movingDirection.y, movingDirection.x);
+                transform.Translate(perpendicularMovement.normalized*0.15f);
+                // movingDirection = transform.position;
+                // transform.rotation = new Quaternion(0.0f, gameObject.transform.rotation.y, 0.0f, 2f);
+                // movingDirection = transform.position
+                // transform.rotation = new Quaternion(0.0f, gameObject.transform.position.y, 0.0f, 1f);
+                // Vector3 nextDestination = patrolPath.GetDestinationOnPath(gameObject.transform, currentPathIndex);
+                // float goalAngle = Mathf.MoveTowardsAngle(gameObject.transform.position.x, nextDestination.x, speed * Time.deltaTime);
+                
+                // if (goalAngle > 0.0f)
+                // {
+                //     Debug.Log("rotating positive way");
+                //     transform.rotation = new Quaternion(0.0f, gameObject.transform.position.y, 0.0f, 2f);
+                // } else
+                //     Debug.Log("rotating negative way");
+                //     transform.rotation = new Quaternion(0.0f, gameObject.transform.position.y, 0.0f, -2f);
+                // transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 1f);
                 
                 
-                Vector3 nextDestination = patrolPath.GetDestinationOnPath(gameObject.transform, currentPathIndex);
-                float goalAngle = Mathf.MoveTowardsAngle(gameObject.transform.eulerAngles.z, nextDestination.z, speed * Time.deltaTime);
-                if (Physics.Raycast(transform.position, movingDirection, out obstacleInFront, 5f)){
-                    Debug.Log("hit something! rotating now!");
+                // Vector3 nextDestination = patrolPath.GetDestinationOnPath(gameObject.transform, currentPathIndex);
+                // float goalAngle = Mathf.MoveTowardsAngle(gameObject.transform.eulerAngles.y, nextDestination.y, speed * Time.deltaTime);
+                // if (goalAngle > 0)
+                // {
+                //     transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 2f);
+                // } else
+                //     transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, -2f);
+                // if (Physics.Raycast(transform.position, movingDirection, out obstacleInFront, 5f)){
+                //     Debug.Log("hit something! rotating now!");
 
-                    if (goalAngle > 0)
-                    {
-                        transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, 2f);
-                    } else
-                        transform.rotation = new Quaternion(gameObject.transform.position.x, 0.0f, 0.0f, -2f);
-                }
+                    
+                // }
 
-                Debug.DrawRay(transform.position, movingDirection, Color.blue);
+                
             } 
         }
         else
         {
-            Debug.DrawRay(transform.position, movingDirection, Color.red);
+            Debug.DrawRay(transform.position, transform.forward, Color.red);
             //This Indexing relies on [NPCPatrol] which accounts for out of bounds and reverse order
             currentPathIndex = patrolPath.UpdatePathDestination(gameObject.transform, currentPathIndex);
             Vector3 nextDestination = patrolPath.GetDestinationOnPath(gameObject.transform, currentPathIndex);
-           
+            // Quaternion goalRotation = Quaternion.FromToRotation(transform.position, transform.forward);
+            // transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, 1.0f);
             patrol(currentPathIndex, nextDestination);
         }
     }

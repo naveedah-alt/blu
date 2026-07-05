@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - LedgeChecker
   - Feet
+  - Wall
   layers:
   - Default
   - TransparentFX
