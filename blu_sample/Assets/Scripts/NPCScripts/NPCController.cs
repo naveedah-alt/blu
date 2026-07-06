@@ -47,10 +47,10 @@ public class NPCController : MonoBehaviour
             //|| !obstacleInFront.collider.CompareTag("Wall")
             if (obstacleInFront.collider.CompareTag("Wall") || obstacleInFront.collider.gameObject.layer != 6 )
             {
-                // Debug.DrawRay(transform.position, transform.forward, Color.blue);
+                Debug.DrawRay(transform.position, movingDirection, Color.blue);
                 // Debug.Log("hit something! rotating now!");
                 Vector3 perpendicularMovement = new Vector3(-movingDirection.z, movingDirection.y, movingDirection.x);
-                transform.Translate(perpendicularMovement.normalized*0.15f);
+                transform.Translate(perpendicularMovement.normalized*0.05f);
                 // movingDirection = transform.position;
                 // transform.rotation = new Quaternion(0.0f, gameObject.transform.rotation.y, 0.0f, 2f);
                 // movingDirection = transform.position
@@ -86,7 +86,7 @@ public class NPCController : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.forward, Color.red);
+            Debug.DrawRay(transform.position, movingDirection, Color.red);
             //This Indexing relies on [NPCPatrol] which accounts for out of bounds and reverse order
             currentPathIndex = patrolPath.UpdatePathDestination(gameObject.transform, currentPathIndex);
             Vector3 nextDestination = patrolPath.GetDestinationOnPath(gameObject.transform, currentPathIndex);
