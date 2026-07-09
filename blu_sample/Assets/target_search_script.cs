@@ -19,9 +19,10 @@ public class target_search_script : MonoBehaviour
         
     }
 
+
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag("Enemy"))
+        if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Target Found");
         }
