@@ -34,7 +34,7 @@ public class BluEngine : MonoBehaviour
     private bool ledgeGrabbed;
     private Ledge ledge;
 
-    public bool movementEnabled;
+    private bool movementEnabled;
     public bool sprint;
     private float acceleration;
     public bool grabbed;
@@ -144,11 +144,6 @@ public class BluEngine : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-        {
-            //gameObject.transform.rotation = rotation;
-
-        }
 
         // if (Input.GetKeyDown (KeyCode.LeftShift))
         // {
@@ -259,8 +254,12 @@ public class BluEngine : MonoBehaviour
         // {
         //     anim.SetBool("Walking", movement.magnitude > 0);
         // }
+        else
+        {
+             rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        }
 
-        anim.SetBool("Walking", movement.magnitude > 0);
+            anim.SetBool("Walking", movement.magnitude > 0);
         
         //Debug.Log(anim.GetBool("Walking"));
         // rb.rotation = camController;
@@ -271,7 +270,7 @@ public class BluEngine : MonoBehaviour
         if (isGrounded && moveHorizontal == 0 && moveVertical == 0)
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
-            //rb.rotation = 
+
         }
     }
 

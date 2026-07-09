@@ -3129,6 +3129,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1613620927}
     - target: {fileID: 1952182348095060707, guid: 71258de3973054beeaff9a26e09a0b53, type: 3}
+      propertyPath: movementEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952182348095060707, guid: 71258de3973054beeaff9a26e09a0b53, type: 3}
       propertyPath: ascendMultiplier
       value: 4
       objectReference: {fileID: 0}
@@ -3190,7 +3194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3168752726064805537, guid: 71258de3973054beeaff9a26e09a0b53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000019073486
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 3168752726064805537, guid: 71258de3973054beeaff9a26e09a0b53, type: 3}
       propertyPath: m_LocalPosition.z
