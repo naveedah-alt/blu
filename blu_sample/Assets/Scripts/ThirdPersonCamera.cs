@@ -13,6 +13,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private float xaw = 0f;
     private float zaw = 0f;
 
+    public Transform lockOnTarget;      // Lock on target
     /// <summary>
     /// Gets input from Input Manager and applies it to camera
     /// Ignore all commented code, they're still there in case we want to revert to old methods

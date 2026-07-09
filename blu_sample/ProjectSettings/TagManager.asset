@@ -9,6 +9,7 @@ TagManager:
   - LedgeChecker
   - Feet
   - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
