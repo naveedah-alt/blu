@@ -411,8 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ba03cf1b7efa54aad48873aeb5bfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 1566464629}
-  targetObject2: {fileID: 0}
+  triggerObjects: []
 --- !u!65 &27290272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -997,8 +996,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ba03cf1b7efa54aad48873aeb5bfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 46556061}
-  targetObject2: {fileID: 1436542097}
+  triggerObjects:
+  - {fileID: 46556061}
+  - {fileID: 1436542097}
 --- !u!65 &205023170
 BoxCollider:
   m_ObjectHideFlags: 0

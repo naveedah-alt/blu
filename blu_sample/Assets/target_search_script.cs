@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class target_search_script : MonoBehaviour
@@ -25,6 +26,8 @@ public class target_search_script : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Target Found");
+            lockOnTarget = collision.gameObject.GetComponent(typeof(Transform)) as Transform;
+            //  lockOnTarget = collision.gameObject; 
         }
     }
 }
