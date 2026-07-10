@@ -6,41 +6,36 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
-     GameObject targetObject;
-    [SerializeField]
-    GameObject targetObject2;
+    public List<GameObject> triggerObjects = new List<GameObject>();
+
 
     int counter = 0; // number of times player has seen the dialogue
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        targetObject.SetActive(true);
-    }
 
     private void OnTriggerEnter(Collider trigger)
     {
-        if (counter == 0)
+        if (counter >= 0 && triggerObjects.Count != 0 && triggerObjects != null)
         {
-            targetObject.SetActive(true);
-            this.gameObject.SetActive(false);
+            triggerObjects[counter].SetActive(true);
+            triggerObjects[counter].SetActive(false);
             counter++;
         }
-        if (counter >= 1)
+        else
         {
-            targetObject2.SetActive(true);
-            this.gameObject.SetActive(false);
+            counter = 0;
         }
-        }
+    }
+
 }
