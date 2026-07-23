@@ -411,7 +411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ba03cf1b7efa54aad48873aeb5bfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerObjects: []
+  triggerObjects:
+  - {fileID: 1566464629}
+  interactable: 0
+  counter: 0
 --- !u!65 &27290272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -999,6 +1002,8 @@ MonoBehaviour:
   triggerObjects:
   - {fileID: 46556061}
   - {fileID: 1436542097}
+  interactable: 1
+  counter: 0
 --- !u!65 &205023170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1546,7 +1551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Testing something
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2197,7 +2202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Talk to me
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5202,7 +5207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1770355292
 RectTransform:
   m_ObjectHideFlags: 0
